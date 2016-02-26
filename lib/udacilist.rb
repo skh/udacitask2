@@ -1,6 +1,6 @@
 class UdaciList
   include UdaciListErrors
-  
+
   attr_reader :title, :items
 
   def initialize(options={})
@@ -15,6 +15,7 @@ class UdaciList
     @items.push LinkItem.new(description, options) if type == "link"
   end
   def delete(index)
+    raise IndexExceedsListSize if index >= @items.length
     @items.delete_at(index - 1)
   end
   def all
