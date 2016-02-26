@@ -1,4 +1,6 @@
 class UdaciList
+  include UdaciListErrors
+  
   attr_reader :title, :items
 
   def initialize(options={})
@@ -7,6 +9,7 @@ class UdaciList
   end
   def add(type, description, options={})
     type = type.downcase
+    raise InvalidItemType unless type == "todo" or type == "event" or type == "link"
     @items.push TodoItem.new(description, options) if type == "todo"
     @items.push EventItem.new(description, options) if type == "event"
     @items.push LinkItem.new(description, options) if type == "link"
