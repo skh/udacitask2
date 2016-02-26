@@ -15,9 +15,9 @@ class UdaciList
     @items.delete_at(index - 1)
   end
   def all
-    puts "-" * @title.length
-    puts @title
-    puts "-" * @title.length
+    puts ("-" * @title.length).colorize(:yellow)
+    puts @title.colorize(:green)
+    puts ("-" * @title.length).colorize(:yellow)
     @items.each_with_index do |item, position|
       puts "#{position + 1}) #{item.details}"
     end
