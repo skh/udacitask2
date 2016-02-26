@@ -9,7 +9,7 @@ class UdaciList
   end
   def add(type, description, options={})
     type = type.downcase
-    raise InvalidItemType unless type == "todo" or type == "event" or type == "link"
+    raise InvalidItemType unless ["todo", "event", "link"].includes? type
     @items.push TodoItem.new(description, options) if type == "todo"
     @items.push EventItem.new(description, options) if type == "event"
     @items.push LinkItem.new(description, options) if type == "link"
