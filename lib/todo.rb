@@ -11,7 +11,7 @@ class TodoItem
     @priority = options[:priority]
   end
   def details
-    output = format_description(@description) + "due: " +
+    output = "Todo:\t" + format_description(@description) + "due: " +
     format_date(due: @due) +
     format_priority(@priority)
     output
