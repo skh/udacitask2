@@ -34,5 +34,8 @@ class UdaciList
     filtered_items.each_with_index do |item, position|
       puts "#{position + 1}) #{item.details}"
     end
+    if filtered_items.length == 0
+      puts "There are no items of type '#{type}'."
+    end
   end
 end
