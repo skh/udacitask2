@@ -26,4 +26,13 @@ class UdaciList
       puts "#{position + 1}) #{item.details}"
     end
   end
+  def filter(type)
+    filtered_items = @items.select {|i| i.type == type}
+    puts ("-" * @title.length).colorize(:yellow)
+    puts @title.colorize(:green)
+    puts ("-" * @title.length).colorize(:yellow)
+    filtered_items.each_with_index do |item, position|
+      puts "#{position + 1}) #{item.details}"
+    end
+  end
 end
