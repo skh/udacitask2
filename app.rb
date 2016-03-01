@@ -60,3 +60,8 @@ new_list.priority(1, "high")
 new_list.priority(3, nil)
 # new_list.priority(2, "so important!") # throws an InvalidPriorityValue error
 new_list.filter("todo")
+
+# DEMO COMPLETE TODO
+# ------------------------
+new_list.complete(1)
+new_list.filter("todo")
