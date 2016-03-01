@@ -50,4 +50,13 @@ new_list.all
 new_list.filter("event")
 
 # DEMO SHOW ALL LIST STATS
+# ------------------------
 UdaciList.all
+
+# DEMO CHANGE PRIORITY
+# ------------------------
+new_list.filter("todo")
+new_list.priority(1, "high")
+new_list.priority(3, nil)
+# new_list.priority(2, "so important!") # throws an InvalidPriorityValue error
+new_list.filter("todo")

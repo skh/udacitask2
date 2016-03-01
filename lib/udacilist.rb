@@ -21,6 +21,10 @@ class UdaciList
     raise UdaciListErrors::IndexExceedsListSize if index >= @items.length
     @items.delete_at(index - 1)
   end
+  def priority(index, priority)
+    raise UdaciListErrors::IndexExceedsListSize if index >= @items.length
+    @items[index - 1].priority = priority
+  end
   def all
     puts ("-" * @title.length).colorize(:yellow)
     puts @title.colorize(:green)
