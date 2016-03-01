@@ -3,9 +3,12 @@ class UdaciList
 
   attr_reader :title, :items
 
+  @@lists = []
+
   def initialize(options={})
     @title = options[:title] || "Untitled List"
     @items = []
+    @@lists << self
   end
   def add(type, description, options={})
     type = type.downcase
@@ -37,5 +40,22 @@ class UdaciList
     if filtered_items.length == 0
       puts "There are no items of type '#{type}'."
     end
+  end
+
+  def self.all
+    rows = []
+    rows << ['List', 'Items', 'Events', 'Todos', 'Links']
+    rows << :separator
+    @@lists.each do |list|
+      row = []
+      row << list.title
+      row << 0
+      row << 0
+      row << 0
+      row << 0
+      rows << row
+    end
+    table = Terminal::Table.new :rows => rows
+    puts table
   end
 end
