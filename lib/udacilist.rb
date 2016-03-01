@@ -30,7 +30,7 @@ class UdaciList
     end
   end
   def filter(type)
-    filtered_items = @items.select {|i| i.type == type}
+    filtered_items = items_by_type(type)
     puts ("-" * @title.length).colorize(:yellow)
     puts @title.colorize(:green)
     puts ("-" * @title.length).colorize(:yellow)
@@ -41,18 +41,21 @@ class UdaciList
       puts "There are no items of type '#{type}'."
     end
   end
+  def items_by_type(type)
+     @items.select {|i| i.type == type}
+  end
 
   def self.all
     rows = []
-    rows << ['List', 'Items', 'Events', 'Todos', 'Links']
+    rows << ['List', 'Items total', 'Events', 'Todos', 'Links']
     rows << :separator
     @@lists.each do |list|
       row = []
       row << list.title
-      row << 0
-      row << 0
-      row << 0
-      row << 0
+      row << list.items.length
+      row << list.items_by_type('event').length
+      row << list.items_by_type('todo').length
+      row << list.items_by_type('link').length
       rows << row
     end
     table = Terminal::Table.new :rows => rows
