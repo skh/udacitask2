@@ -23,10 +23,14 @@ class UdaciList
   end
   def priority(index, priority)
     raise UdaciListErrors::IndexExceedsListSize if index >= @items.length
+    # Only Todos have a priority
+    raise UdaciListErrors::InvalidItemType unless @items[index - 1].type == 'todo'
     @items[index - 1].priority = priority
   end
   def complete(index)
     raise UdaciListErrors::IndexExceedsListSize if index >= @items.length
+    # Only Todos can be completed
+    raise UdaciListErrors::InvalidItemType unless @items[index - 1].type == 'todo'
     @items[index -1].completed = true
   end
   def all
