@@ -1,13 +1,23 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+I added the gem 'terminal-table' and used it to display
+a few statistics about the todo lists that have been created.
+
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) It is now possible to change the priority of a todo item
+  b) It is now possible to set todo items to completed. They are
+     shown with a little checkmark in the list output.
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+About 4-6 hours, though it's hard to say because I didn't decide
+what extra features to implement for almost a week and
+procrastinated a lot.
 2. What was the most rewarding challenge you conquered?
+Just finishing the project.
 3. What two additional features did you build? Why?
+See above.
 4. Where do you still have room to grow?
+More creativity in coming up with extra features?
